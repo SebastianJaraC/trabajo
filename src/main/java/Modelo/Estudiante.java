@@ -12,11 +12,13 @@ import java.time.LocalDate;
  */
 public class Estudiante {
 
+    private int codigo;
     private String cedula;
     private String nombre;
     private LocalDate fechaNacimiento;
 
-    public Estudiante(String cedula, String nombre, LocalDate fechaNacimiento) {
+    public Estudiante( int codigo, String cedula, String nombre, LocalDate fechaNacimiento) {
+        this.codigo = codigo;
         this.cedula = cedula;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
@@ -47,24 +49,19 @@ public class Estudiante {
         this.nombre = nombre;
     }
 
-       private int calcularEdad(){
-        var yearActual= LocalDate.now().getYear();
-        var mesActual= LocalDate.now().getMonthValue();
-        var diaActual= LocalDate.now().getDayOfMonth();
-        
-        
-        return yearActual-this.fechaNacimiento.getYear()+
-                mesActual-this.fechaNacimiento.getMonthValue()+
-                diaActual-this.fechaNacimiento.getDayOfMonth();
-        
-        
+    public int getCodigo() {
+        return codigo;
     }
-       
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
        
        
     @Override
     public String toString() {
-        return "Estudiante{" + "cedula=" + cedula + ", nombre=" + nombre + '}';
+        return "Estudiante{" +  "codigo=" + codigo + "cedula=" + cedula + ", nombre=" + nombre + '}';
     }
     
     

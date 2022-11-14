@@ -12,24 +12,14 @@ import java.util.List;
  *
  * @author LAB-2
  */
-public class EstudianteService {
-    private List<Estudiante> estudianteList;
+public interface EstudianteService {
+    public abstract void crear(Estudiante estudiante);
 
-    public EstudianteService() {
-        this.estudianteList= new ArrayList<>();
-    }
-    
-    public void crear(Estudiante jugador){
-        this.estudianteList.add(jugador);
-    }
-    public List<Estudiante> listar(){
-        return this.estudianteList;
-    }
-    
-    public void eliminarPorPosicion(int posicion){
-        this.estudianteList.remove(posicion);
-    }
-    
+    public abstract void modificar(int codigo, Estudiante estudianteModificado);
+
+    public abstract void eliminar(int codigo);
+
+    public abstract List<Estudiante> listar();
     
     
 }

@@ -12,28 +12,16 @@ import java.util.List;
  *
  * @author LAB-2
  */
-public class JugadorService {
-    
-     private List<Jugador> jugadorList;
+public interface JugadorService {
 
-    public JugadorService() {
-        this.jugadorList= new ArrayList<>();
-    }
-    
-    public void crear(Jugador jugador){
-        this.jugadorList.add(jugador);
-    }
-    public List<Jugador> listar(){
-        return this.jugadorList;
-    }
-    
-    public void eliminarPorPosicion(int posicion){
-        this.jugadorList.remove(posicion);
-    }
-    
-    
-    
-    
-    
+   
+
+    public abstract void crear(Jugador jugador);
+
+    public abstract void modificar(int codigo, Jugador jugadorModificado);
+
+    public abstract void eliminar(int codigo);
+
+    public abstract List<Jugador> listar();
 
 }

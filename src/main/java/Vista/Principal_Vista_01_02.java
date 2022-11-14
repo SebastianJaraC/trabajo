@@ -8,7 +8,9 @@ import Modelo.Estudiante;
 import Modelo.Carrera;
 import Modelo.Jugador;
 import Service.EstudianteService;
+import Service.EstudianteServicioImpl;
 import Service.JugadorService;
+import Service.JugadorServicioImpl;
 import java.time.LocalDate;
 
 public class Principal_Vista_01_02 {
@@ -32,42 +34,50 @@ public class Principal_Vista_01_02 {
         
          */
 
-        var enner = new Jugador("Enner Valencia", 80, 175, LocalDate.of(1998, 02, 01));
-        var byron = new Jugador("Byron Castillo", 80, 175, LocalDate.of(1998, 02, 01));
-        var dominguez = new Jugador("Dida Dominguez", 80, 175, LocalDate.of(1998, 02, 01));
-        var galindez = new Jugador("Hernán Galindez", 80, 175, LocalDate.of(1998, 02, 01));
-        var baseDatosJugadores = new JugadorService();
-        
-      
+       var enner = new Jugador(10,"Enner Valencia",80,175,LocalDate.of(1998, 02, 01));
+       var byron = new Jugador(20,"Byron Castillo",80,175,LocalDate.of(1997, 02, 01));
+       var dominguez = new Jugador(30,"Dida Dominguez",80,175,LocalDate.of(1996, 02, 01));
+       var galindez = new Jugador(40,"Ernan Galindez",80,175,LocalDate.of(1999, 02, 01));
+       var galindezNuevo = new Jugador(40,"Hernán Galindez",80,175,LocalDate.of(1990, 02, 01));
        
-
-        baseDatosJugadores.crear(enner);
-        baseDatosJugadores.crear(byron);
-        baseDatosJugadores.crear(dominguez);
-        baseDatosJugadores.crear(galindez);
-        System.out.println(baseDatosJugadores.listar());
-        baseDatosJugadores.eliminarPorPosicion(1);
-        System.out.println(baseDatosJugadores.listar());
-
+       var martina = new Estudiante(10,"012376675","Martina Valencia",LocalDate.of(2002, 02, 01));
+       var daniel = new Estudiante(20,"01231823913","Daniel Castillo",LocalDate.of(2000, 02, 01));
+       var javier = new Estudiante(30,"01231867867","Javier Dominguez",LocalDate.of(1999, 02, 01));
+       var sofia = new Estudiante(40,"012987789","Sophia Galindez",LocalDate.of(2000, 02, 01));
+       var sofiaNuevo = new Estudiante(40,"012987789","Sofia Galindez",LocalDate.of(2001, 02, 01));
+       
+       var jugadorDB = new JugadorServicioImpl();
+       jugadorDB.crear(enner);
+       jugadorDB.crear(byron);
+       jugadorDB.crear(dominguez);
+       jugadorDB.crear(galindez);
+       System.out.println(jugadorDB.listar());
+       jugadorDB.eliminar(20);
+       jugadorDB.eliminar(30);
+       System.out.println(jugadorDB.listar());
+       jugadorDB.modificar(40, galindezNuevo);
+       System.out.println(jugadorDB.listar());
+       
+       var estudianteDB = new EstudianteServicioImpl();
+       estudianteDB.crear(martina);
+       estudianteDB.crear(daniel);
+       estudianteDB.crear(javier);
+       estudianteDB.crear(sofia);
+       System.out.println(estudianteDB.listar());
+       estudianteDB.eliminar(20);
+       estudianteDB.eliminar(30);
+       System.out.println(estudianteDB.listar());
+       estudianteDB.modificar(40, sofiaNuevo);
+       System.out.println(estudianteDB.listar());
+       
+        
+       
+       
+       
         
         
-        var sebastian = new Estudiante("0107339608", "Sebastian Jara ", LocalDate.of(2002, 11, 21));
-        var juan = new Estudiante("0103453454", "Juan Arias", LocalDate.of(2003, 05, 10));
-        var ricardo = new Estudiante("0123123124", "Ricardo Martinez", LocalDate.of(2000, 02, 01));
-        var maria = new Estudiante("0123123132","Maria Galindez", LocalDate.of(2001, 02, 01));
-        
-        var baseDatosEstudiantes = new EstudianteService();
-        baseDatosEstudiantes.crear(sebastian);
-        baseDatosEstudiantes.crear(juan);
-        baseDatosEstudiantes.crear(ricardo);
-        baseDatosEstudiantes.crear(maria);
-        
-        
-        System.out.println(baseDatosEstudiantes.listar());
-        baseDatosEstudiantes.eliminarPorPosicion(1);
-        System.out.println(baseDatosEstudiantes.listar());
-        
-        System.out.println();
     }
 
+  
+    
 }
