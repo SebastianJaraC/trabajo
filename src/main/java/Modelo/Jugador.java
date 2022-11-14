@@ -65,6 +65,7 @@ public class Jugador {
     }
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        
         this.fechaNacimiento = fechaNacimiento;
     }
     
